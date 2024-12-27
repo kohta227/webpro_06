@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>質問ページ</title>
+</head>
+<body>
+  <h1>質問コーナー</h1>
+  <form action="/questions" method="get">
+    <p>質問1: あなたは大人数で集まることが好きですか？</p>
+    <input type="radio" id="q1_yes" name="answer1" value="はい" required>
+    <label for="q1_yes">はい</label>
+    <input type="radio" id="q1_no" name="answer1" value="いいえ">
+    <label for="q1_no">いいえ</label>
+
+    <p>質問2: あなたは運動が好きですか？</p>
+    <input type="radio" id="q2_yes" name="answer2" value="はい" required>
+    <label for="q2_yes">はい</label>
+    <input type="radio" id="q2_no" name="answer2" value="いいえ">
+    <label for="q2_no">いいえ</label>
+
+    <p>質問3: あなたは人前で話したり中心人物になることが好きですか？</p>
+    <input type="radio" id="q3_yes" name="answer3" value="はい" required>
+    <label for="q3_yes">はい</label>
+    <input type="radio" id="q3_no" name="answer3" value="いいえ">
+    <label for="q3_no">いいえ</label>
+
+    <br><br>
+    <button type="submit">結果を見る</button>
+  </form>
+
+  <% if (result) { %>
+    <h2>結果: <%= result %></h2>
+    <p>回答: 質問1=<%= answer1 %>, 質問2=<%= answer2 %>, 質問3=<%= answer3 %></p>
+  <% } %>
+</body>
+</html>
