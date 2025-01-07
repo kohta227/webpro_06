@@ -156,7 +156,7 @@ app.post("/react", (req, res) => {
   } else {
     res.status(404).json({ status: "error", message: "Invalid post or reaction" });
   }
-});
+});　
 
 // 投稿エンドポイントの更新 (ユニークID追加)
 app.post("/post", (req, res) => {
