@@ -2,7 +2,7 @@
 
 let number = 0;
 const bbs = document.querySelector('#bbs');
-
+　
 // 投稿ボタンの処理
 document.querySelector('#post').addEventListener('click', () => {
     const name = document.querySelector('#name').value;
