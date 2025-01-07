@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>掲示板</title>
+    <script src="./bbs.js" defer></script>
+    <link rel="stylesheet" href="./bbs.css">
+</head>
+<body>
+    <div id="bbs"></div>
+    <div>
+        <label for="name">名前：</label>
+        <input type="text" id="name">
+        <label for="name">メッセージ：</label>
+        <input type="text" id="message">
+        <button type="button" id="post">送信</button>
+    </div>
+    <div id="check">
+        <button type="button" id="check">投稿チェック</button>
+    </div>
+</body>
+</html>
+<div>
+    <label for="reply-id">返信元ID：</label>
+    <input type="text" id="reply-id">
+    <label for="reply-name">名前：</label>
+    <input type="text" id="reply-name">
+    <label for="reply-message">返信メッセージ：</label>
+    <input type="text" id="reply-message">
+    <button type="button" id="reply">返信</button>
+</div>
+<div>
+    <label for="delete-id">削除対象ID：</label>
+    <input type="text" id="delete-id">
+    <button type="button" id="delete">削除</button>
+</div>
+<div>
+    <label for="react-id">リアクション対象ID：</label>
+    <input type="text" id="react-id">
+    <select id="reaction">
+        <option value="like">いいね</option>
+        <option value="negative">よくない</option>
+    </select>
+    <button type="button" id="react">リアクション</button>
+</div>
