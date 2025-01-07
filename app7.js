@@ -111,9 +111,9 @@ app.post("/post", (req, res) => {
 
 
 
-// 2. 返信機能の追加
+// 返信機能
 app.post("/reply", (req, res) => {
-  const parentId = Number(req.body.parentId); // 親投稿ID
+  const parentId = Number(req.body.parentId); 
   const name = req.body.name;
   const message = req.body.message;
   console.log({ parentId, name, message });
@@ -128,9 +128,9 @@ app.post("/reply", (req, res) => {
   }
 });
 
-// 3. 削除機能の追加
+// 削除機能
 app.post("/delete", (req, res) => {
-  const postId = Number(req.body.postId); // 削除する投稿のID
+  const postId = Number(req.body.postId); 
   console.log({ postId });
 
   const post = bbs.find(post => post.id === postId);
@@ -143,10 +143,10 @@ app.post("/delete", (req, res) => {
   }
 });
 
-// 4. リアクション機能の追加
+// リアクション機能
 app.post("/react", (req, res) => {
-  const postId = Number(req.body.postId); // リアクション対象の投稿ID
-  const reaction = req.body.reaction; // リアクション種別（例: "like", "negative"）
+  const postId = Number(req.body.postId); 
+  const reaction = req.body.reaction; 
   console.log({ postId, reaction });
 
   const post = bbs.find(post => post.id === postId);
@@ -158,11 +158,10 @@ app.post("/react", (req, res) => {
   }
 });　
 
-// 投稿エンドポイントの更新 (ユニークID追加)
 app.post("/post", (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
-  const id = Date.now(); // ユニークIDを生成
+  const id = Date.now(); 
   console.log({ id, name, message });
 
   const newPost = { id, name, message, replies: [], reactions: { like: 0, negative: 0 } };
