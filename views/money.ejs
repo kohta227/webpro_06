@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>バイト代管理帳</title>
+</head>
+<body>
+  <h2>収支一覧</h2>
+  <table border="1" style="border-collapse: collapse; width: 600px;">
+    <tr><th>項目名</th><th>収入</th><th>支出</th><th>操作</th></tr>
+    <% let i = 0 %>
+    <% for( let row of data ) { %>
+      <tr>
+        <td><a href="/money/<%= i %>"><%= row.name %></a></td>
+        <td style="color:blue;">+<%= row.income %>円</td>
+        <td style="color:red;">-<%= row.expense %>円</td>
+        <td style="text-align:center;">
+          <form action="/money/delete/<%= i %>" method="POST" style="margin:0;">
+            <input type="submit" value="削除" onclick="return confirm('削除しますか？');">
+          </form>
+        </td>
+      </tr>
+      <% i += 1 %>
+    <% } %>
+  </table>
+
+  <h3>新規記録</h3>
+  <form action="/money/create" method="POST" style="background:#f0f0f0; padding:10px; width:580px;">
+    項目: <input type="text" name="name" required>
+    収入: <input type="number" name="income" value="0">
+    支出: <input type="number" name="expense" value="0">
+    <input type="submit" value="追加">
+  </form>
+</body>
+</html>

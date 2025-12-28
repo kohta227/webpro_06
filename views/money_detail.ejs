@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %> の編集</title>
+</head>
+<body>
+  <h2><%= data.name %> の詳細・修正</h2>
+  <form action="/money/update/<%= id %>" method="POST">
+    <table border="1">
+      <tr><td>項目名</td><td><%= data.name %></td></tr>
+      <tr>
+        <td>収入額</td>
+        <td><input type="number" name="income" value="<%= data.income %>"> 円</td>
+      </tr>
+      <tr>
+        <td>支出額</td>
+        <td><input type="number" name="expense" value="<%= data.expense %>"> 円</td>
+      </tr>
+    </table>
+    <br>
+    <input type="submit" value="修正して保存">
+  </form>
+  <br><a href="/money">一覧に戻る</a>
+</body>
+</html>

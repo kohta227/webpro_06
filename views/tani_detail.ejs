@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title><%= data.name %> の単位入力</title>
+</head>
+<body>
+  <h2><%= data.name %> の詳細・入力</h2>
+  
+  <form action="/tani/update/<%= id %>" method="POST">
+    
+    <table border="1">
+      <tr><th>項目</th><th>データ</th></tr>
+      
+      <tr><td>ID</td><td><%= data.id %></td></tr>
+      <tr><td>科目名</td><td><%= data.name %></td></tr>
+      
+      <tr>
+        <td>必修単位 (必要数: <%= data.reqsubject %>)</td>
+        <td>
+            <input type="number" name="reqacquisition" value="<%= data.reqacquisition %>" min="0">
+        </td>
+      </tr>
+      
+      <tr>
+        <td>選択単位 (必要数: <%= data.elesubject %>)</td>
+        <td>
+            <input type="number" name="eleacquisition" value="<%= data.eleacquisition %>" min="0">
+        </td>
+      </tr>
+    </table>
+    
+    <br>
+    <input type="submit" value="更新して保存する">
+  </form>
+  
+  <br>
+  <a href="/tani">一覧に戻る</a>
+</body>
+</html>

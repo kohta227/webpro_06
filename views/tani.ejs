@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>単位確認システム</title>
+</head>
+<body>
+  <h2>単位数確認システム</h2>
+  
+  <table border="1" style="border-collapse: collapse; width: 600px;">
+    <tr>
+        <th>ID</th>
+        <th>科目区分</th>
+        <th>取得状況</th>
+        <th>削除</th>
+    </tr>
+    
+    <% let number = 0 %>
+    <% for( let row of data ) { %>
+      <tr>
+        <td style="text-align:center;"><%= row.id %></td>
+        
+        <td><a href="/tani/<%= number %>"><%= row.name %></a></td>
+        
+        <td style="text-align:center;">
+           必修: <%= row.reqacquisition %> / <%= row.reqsubject %><br>
+           選択: <%= row.eleacquisition %> / <%= row.elesubject %>
+        </td>
+
+        <td style="text-align:center;">
+          <form action="/tani/delete/<%= number %>" method="POST" style="margin:0;">
+            <input type="submit" value="削除" style="color:red;" onclick="return confirm('本当に削除しますか？');">
+          </form>
+        </td>
+      </tr>
+      <% number += 1 %>
+    <% } %>
+  </table>
+  
+  <hr>
+
+  <h3>新しい科目の追加</h3>
+  <form action="/tani/create" method="POST" style="background-color: #f0f0f0; padding: 15px; width: 570px;">
+    <label>科目名: <input type="text" name="name" required></label><br><br>
+    
+    <label>卒業に必要な必修単位数: <input type="number" name="reqsubject" value="0" style="width:50px;"></label><br>
+    <label>卒業に必要な選択単位数: <input type="number" name="elesubject" value="0" style="width:50px;"></label><br><br>
+    
+    <input type="submit" value="追加する">
+  </form>
+
+</body>
+</html>
